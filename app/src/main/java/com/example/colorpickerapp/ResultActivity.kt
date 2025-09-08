@@ -1,5 +1,7 @@
 package com.example.colorpickerapp
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -16,9 +18,17 @@ class ResultActivity : AppCompatActivity() {
         val tvResult = findViewById<TextView>(R.id.tv_result)
 
         if (color != null) {
-            // TANPA try-catch - akan crash jika invalid
-            bgLayout.setBackgroundColor(Color.parseColor("#$color"))
-            tvResult.text = getString(R.string.result, color)
+            try {
+                // TAMBAH try-catch untuk commit 3
+                bgLayout.setBackgroundColor(Color.parseColor("#$color"))
+                tvResult.text = getString(R.string.result, color)
+            } catch (e: Exception) {
+                // Kirim error response ke MainActivity
+                val errorIntent = Intent()
+                errorIntent.putExtra("ERROR", true)
+                setResult(Activity.RESULT_OK, errorIntent)
+                finish() // Kembali ke MainActivity
+            }
         }
     }
 }
