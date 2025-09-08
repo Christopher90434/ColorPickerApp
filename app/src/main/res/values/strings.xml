@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ColorPickerApp</string>
+    <string name="welcome">Welcome! Enter your preferred color code!</string>
+    <string name="hint">Enter color code</string>
+    <string name="submit">SUBMIT</string>
+    <string name="empty">Color code field is empty!</string>
+    <string name="length_error">Color code has to be 6 digits!</string>
+    <string name="result">Color code #%s is applied!</string>
+    <string name="invalid">Color code is invalid!</string>
 </resources>
